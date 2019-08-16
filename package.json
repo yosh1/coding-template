@@ -1,7 +1,7 @@
 {
   "name": "coding-template",
   "version": "1.0.0",
-  "description": "",
+  "description": "coding template for html and scss",
   "main": "index.js",
   "scripts": {
     "commit": "node ./node_modules/cz-customizable/standalone.js",
