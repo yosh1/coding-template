@@ -7,7 +7,6 @@
     "commit": "node ./node_modules/cz-customizable/standalone.js",
     "scss": "node-sass -w --include-path scss scss/ -o css/ --output-style compressed",
     "prefix": "postcss --use autoprefixer --no-map css/ -d css/",
-    "test": "npm-run-all -p dev scss prefix",
     "gulp": "gulp browserify",
     "uncss": "grunt default"
   },

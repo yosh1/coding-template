@@ -1,4 +1,4 @@
-# Coding Template for HTML / SCSS
+# Coding Template for HTML / SCSS / Babel
 
 ---
 
@@ -8,15 +8,32 @@
 $ npm i; npm run start
 ```
 
+## Add CSS prefix
+
+```
+$ npm run prefix
+```
+
+## gulp 
+
+```
+$ npm run gulp
+```
+
+## uncss
+
+```
+$ npm run uncss
+```
+
 ## SCSS compile
 
 ```
 $ npm run scss
 ```
 
-## git commit (by commitizen)
+## git commit
 
 ```
-$ git add .
 $ npm run commit
 ```
