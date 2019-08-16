@@ -1,0 +1,23 @@
+{
+  "name": "coding-template",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "commit": "node ./node_modules/cz-customizable/standalone.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/yoshi1125hisa/coding-template.git"
+  },
+  "author": "yoshi1125hisa",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/yoshi1125hisa/coding-template/issues"
+  },
+  "homepage": "https://github.com/yoshi1125hisa/coding-template#readme",
+  "devDependencies": {
+    "cz-customizable": "^6.2.0"
+  }
+}
