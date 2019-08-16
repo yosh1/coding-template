@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "commit": "node ./node_modules/cz-customizable/standalone.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "scss": "node-sass -w --include-path scss scss/ -o css/ --output-style compressed",
+    "prefix": "postcss --use autoprefixer --no-map css/ -d css/",
+    "test": "npm-run-all -p dev scss prefix"
   },
   "repository": {
     "type": "git",
@@ -17,7 +19,20 @@
     "url": "https://github.com/yoshi1125hisa/coding-template/issues"
   },
   "homepage": "https://github.com/yoshi1125hisa/coding-template#readme",
+  "dependencies": {
+    "grunt": "^1.0.4"
+  },
   "devDependencies": {
-    "cz-customizable": "^6.2.0"
+    "cz-customizable": "^6.2.0",
+    "autoprefixer": "9.5.1",
+    "grunt-contrib-cssmin": "^3.0.0",
+    "grunt-uncss": "^0.8.6",
+    "node-sass": "^4.12.0",
+    "node-sass-import": "2.0.1",
+    "npm-run-all": "4.1.5",
+    "postcss": "7.0.16",
+    "postcss-cli": "6.1.2",
+    "postcss-import": "12.0.1",
+    "postcss-loader": "3.0.0"
   }
 }
