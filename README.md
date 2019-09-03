@@ -7,6 +7,7 @@
 ```
 .
 ├── README.md (This file)
+├── .github (Issue and PR Templates)
 ├── dist (Public fils)
 │   ├── css
 │   │   └── style.css (compiled file)
