@@ -49,3 +49,4 @@ scripts/*.json
 
 package-lock.json
 yarn.lock
+dist/
