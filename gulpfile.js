@@ -63,8 +63,8 @@ gulp.task('serve', done => {
 
 // jpg,png,gif画像の圧縮タスク
 gulp.task('imagemin', function () {
-    var srcGlob = paths.srcDir + '/**/*.+(jpg|jpeg|png|gif)';
-    var dstGlob = paths.dstDir;
+    const srcGlob = paths.srcDir + '/**/*.+(jpg|jpeg|png|gif)';
+    const dstGlob = paths.dstDir;
     gulp.src(srcGlob)
         .pipe(changed(dstGlob))
         .pipe(imagemin([
@@ -81,8 +81,8 @@ gulp.task('imagemin', function () {
 });
 // svg画像の圧縮タスク
 gulp.task('svgmin', function () {
-    var srcGlob = paths.srcDir + '/**/*.+(svg)';
-    var dstGlob = paths.dstDir;
+    const srcGlob = paths.srcDir + '/**/*.+(svg)';
+    const dstGlob = paths.dstDir;
     gulp.src(srcGlob)
         .pipe(changed(dstGlob))
         .pipe(svgmin())
