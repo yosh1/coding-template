@@ -10,27 +10,27 @@ gulp.task('sass', () => {
         browsers: ['last 2 version']
     })]
     return gulp
-        .src('./src/scss/*.scss')
+        .src('./scss/*.scss')
         .pipe(sass())
         .pipe(postcss(processors))
         .pipe(cleanCSS({
             compatibility: 'ie9'
         }))
-        .pipe(gulp.dest('./dist/css'))
+        .pipe(gulp.dest('./css'))
 })
 
 gulp.task('babel', () => {
     const babel = require('gulp-babel')
     return gulp
-        .src('./src/**/*.js')
+        .src('./js/*.js')
         .pipe(babel())
-        .pipe(gulp.dest('./dist'))
+        .pipe(gulp.dest('./bundle'))
 })
 
 gulp.task('serve', done => {
     browserSync.init({
         server: {
-            baseDir: './dist',
+            baseDir: '.',
             index: 'index.html',
         },
     })
@@ -42,9 +42,9 @@ gulp.task('watch', () => {
         browserSync.reload()
         done()
     }
-    gulp.watch('./dist/**/*', browserReload)
-    gulp.watch('./src/scss/*.scss', gulp.series('sass'))
-    gulp.watch('./src/js/*.js', gulp.series('babel'))
+    gulp.watch('./**/*', browserReload)
+    gulp.watch('./scss/*.scss', gulp.series('sass'))
+    gulp.watch('./js/*.js', gulp.series('babel'))
 })
 
 gulp.task('default', gulp.series('serve', 'watch'))

@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "commit": "node ./node_modules/cz-customizable/standalone.js",
-    "start": "npx gulp"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
