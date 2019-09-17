@@ -1,5 +1,6 @@
 const gulp = require('gulp')
 const browserSync = require('browser-sync').create()
+const cleanCSS = require('gulp-clean-css');
 
 gulp.task('sass', () => {
     const sass = require('gulp-sass')
@@ -12,6 +13,9 @@ gulp.task('sass', () => {
         .src('./src/scss/*.scss')
         .pipe(sass())
         .pipe(postcss(processors))
+        .pipe(cleanCSS({
+            compatibility: 'ie9'
+        }))
         .pipe(gulp.dest('./dist/css'))
 })
 
