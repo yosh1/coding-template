@@ -23,3 +23,11 @@
 ```
 $ npm i; npm run start
 ```
+
+## Git commit
+
+```
+$ git add .
+$ npm run commit
+$ git push origin master
+````
