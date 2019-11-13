@@ -10,8 +10,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = [{
     entry: {
         app: [
-            './src/js/app.js',
-            './src/sass/style.scss',
+            './src/js/index.js',
+            './src/scss/style.scss',
         ],
     },
     output: {
@@ -76,7 +76,7 @@ module.exports = [{
             },
         }),
         new HtmlWebpackPlugin({
-            template: path.resolve(__dirname, 'index.html')
+            template: path.resolve(__dirname, 'src/index.html')
         })
     ],
     devServer: {
