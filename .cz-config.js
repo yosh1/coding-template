@@ -1,9 +1,9 @@
 
 module.exports = {
   types: [
-    { value: '🤩', name: '新しい機能' },
-    { value: '🔧', name: 'バグフィックス' },
-    { value: '😍', name: '改善' },
-    { value: '💪', name: 'その他' }
+    { value: '✨', name: 'New function' },
+    { value: '🔧', name: 'bug fix' },
+    { value: '😍', name: 'fix' },
+    { value: '💪', name: 'other' }
   ]
 };
