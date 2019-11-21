@@ -1,11 +1,9 @@
-'use strict';
-
-import gulp from 'gulp';
-import sass from 'gulp-sass';
-import babel from 'gulp-babel';
-import browserSync from 'browser-sync';
-import uglify from 'gulp-uglify';
-import rename from 'gulp-rename';
+const gulp = require('gulp');
+const sass = require('gulp-sass');
+const babel = require('gulp-babel');
+const browserSync = require('browser-sync');
+const uglify = require('gulp-uglify');
+const rename = require('gulp-rename');
 
 gulp.task('babel', function () {
   gulp.src('src/js/*.js')
@@ -13,17 +11,22 @@ gulp.task('babel', function () {
       presets: ["@babel/preset-env"]
     }))
     .pipe(uglify())
-      .pipe(rename({
-        extname: '.min.js'
-      }))
+    .pipe(rename({
+      extname: '.min.js'
+    }))
     .pipe(gulp.dest('assets/js/'));
 });
 
-
 gulp.task('scss', () => {
-      gulp.src("src/scss/**/*.scss")
-        .pipe(sass())
-        .pipe(gulp.dest("assets/css"));
+const postcss = require('gulp-postcss');
+  const processors = [cssnext({
+    browsers: ['last 2 version']
+  })]
+
+  gulp.src("src/scss/**/*.scss")
+    .pipe(sass())
+    .pipe(postcss(processors))
+    .pipe(gulp.dest("assets/css"));
 });
 
 gulp.task('build', gulp.parallel('babel', 'scss'));
