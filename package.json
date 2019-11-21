@@ -5,9 +5,8 @@
   "main": "src/js/index.js",
   "scripts": {
     "commit": "node ./node_modules/cz-customizable/standalone.js",
-    "build": "gulp build",
-    "serve": "gulp serve",
-    "watch": "gulp watch"
+    "start": "gulp"
+    "build": "gulp build"
   },
   "repository": {
     "type": "git",

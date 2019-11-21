@@ -10,7 +10,7 @@ using `babel`, `gulp / gulp-sass`, `browser-sync`, `git-cz / commitizen` and so.
 
 ```
 $ npm i
-$ npm run serve
+$ npm run start
 ```
 
 ## Deploy
