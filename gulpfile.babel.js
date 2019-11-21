@@ -1,7 +1,7 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
 const babel = require('gulp-babel');
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
@@ -28,10 +28,13 @@ gulp.task('scss', () => {
   gulp.src("src/scss/**/*.scss")
     .pipe(sass())
     .pipe(postcss(processors))
+    .on('error', sass.logError)
     .pipe(gulp.dest("assets/css"));
 });
 
-gulp.task('build', gulp.parallel('babel', 'scss'));
+gulp.task('build',
+  gulp.parallel('babel', 'scss')
+);
 
 gulp.task('serve', done => {
   browserSync.init({
@@ -41,16 +44,17 @@ gulp.task('serve', done => {
     },
   })
   done()
-});
-
-gulp.task('reload', function () {
-  browserSync.reload();
-});
-
-gulp.task('watch', () => {
-  gulp.watch('./assets/**/*', gulp.task('reload'));
-  gulp.watch('./*.html', gulp.task('reload'));
-  gulp.watch('src/**/*', gulp.parallel('babel', 'scss'));
 })
 
-gulp.task('default', gulp.series('serve', 'watch'));
+gulp.task('watch', () => {
+  const browserReload = done => {
+    browserSync.reload()
+    done()
+  }
+    gulp.watch('./assets/**/*', browserReload);
+    gulp.watch('./index.html', browserReload);
+    gulp.watch('src/js/*.js', gulp.series('babel'));
+    gulp.watch('src/scss/*.scss', gulp.series('scss'));
+})
+
+gulp.task('default', gulp.series('serve', 'watch'))
