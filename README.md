@@ -2,7 +2,7 @@
 
 ---
 
-## How to run 
+## How to run
 
 ```
 $ npm i
@@ -14,8 +14,6 @@ $ npm run dev
 ```
 $ npm run build
 ```
-
-made `/dist` folders.
 
 ## Git commit
 
