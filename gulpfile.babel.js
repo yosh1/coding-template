@@ -32,21 +32,25 @@ gulp.task('watch', () => {
   gulp.watch('src/**/*', gulp.parallel('babel', 'scss'));
 });
 
-gulp.task('serve', gulp.task('watch'), () => {
-  browserSync({
-    notify: false,
-    port: 9000,
-    // proxy: 'example.com',
+gulp.task('serve', done => {
+  browserSync.init({
     server: {
-      baseDir: '.'
-    }
-  });
+      baseDir: './',
+      index: 'index.html',
+    },
+  })
+  done()
+})
 
-  gulp.watch([
-    '**/*.html',
-    'assets/**/*.css',
-    'assets/**/*.js'
-  ]).on('change', browserSync.reload);
-});
+gulp.task('watch', () => {
+  const browserReload = done => {
+    browserSync.reload()
+    done()
+  }
+  gulp.watch('./assets/**/*', browserReload);
+  gulp.watch('./*.html', browserReload)
+  gulp.watch('./src/scss/*.scss', gulp.series('scss'));
+  gulp.watch('./src/js/*.js', gulp.series('babel'));
+})
 
-gulp.task('default', gulp.parallel('build', 'serve'));
+gulp.task('default', gulp.series('build', 'serve'));
