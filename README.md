@@ -1,4 +1,6 @@
-# Coding Template for HTML / SCSS / ES2015
+# Coding Template for HTML / SCSS / ES6
+
+using `babel`, `gulp`, `browser-sync`, `gulp-sass` and so.
 
 ---
 
@@ -6,7 +8,7 @@
 
 ```
 $ npm i
-$ npm run dev
+$ npm run serve
 ```
 
 ## Deploy
@@ -20,5 +22,5 @@ $ npm run build
 ```
 $ git add .
 $ npm run commit
-$ git push origin master
+$ git push
 ````
