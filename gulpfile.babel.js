@@ -4,6 +4,8 @@ const babel = require('gulp-babel');
 const browserSync = require('browser-sync');
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
+const postcss = require('gulp-postcss');
+const cssnext = require('postcss-cssnext')
 
 gulp.task('babel', function () {
   gulp.src('src/js/*.js')
@@ -18,7 +20,7 @@ gulp.task('babel', function () {
 });
 
 gulp.task('scss', () => {
-const postcss = require('gulp-postcss');
+
   const processors = [cssnext({
     browsers: ['last 2 version']
   })]
