@@ -5,6 +5,7 @@
     "groupName": "all major dependencies"
   },
   "minor": {
+    "automerge": true,
     "groupName": "all minor dependencies"
   },
   "patch": {
