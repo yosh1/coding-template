@@ -1,6 +1,6 @@
 # Coding Template for HTML / SCSS / ES6
 
-using `babel`, `gulp / gulp-sass`, `browser-sync`, `git-cz / commitizen` and so.
+using `babel`, `gulp / gulp-sass`, `browser-sync`, `git-cz / commitizen` and so. 
 
 ---
 
@@ -20,6 +20,12 @@ $ npm run start
 ```
 $ npm run build
 ```
+
+### If you use `Netlify`
+
+| Deploy dir | Deploy command |
+|:---:|:---:|
+| `./` | `npm run build` |
 
 ## Git commit
 
