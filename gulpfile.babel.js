@@ -4,8 +4,9 @@ const browserSync = require('browser-sync').create();
 const uglify = require('gulp-uglify');
 const rename = require('gulp-rename');
 
-gulp.task('babel', function () {
-  gulp.src('src/js/*.js')
+gulp.task('babel', () => {
+  return gulp
+    .src('src/js/*.js')
     .pipe(babel({
       presets: ["@babel/preset-env"]
     }))
