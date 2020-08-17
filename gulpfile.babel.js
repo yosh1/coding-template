@@ -41,7 +41,7 @@ gulp.task('copy', function () {
 });
 
 gulp.task('build',
-  gulp.parallel('babel', 'scss')
+  gulp.parallel('copy', 'babel', 'scss')
 );
 
 gulp.task('serve', done => {
