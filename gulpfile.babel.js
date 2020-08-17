@@ -14,7 +14,7 @@ gulp.task('babel', () => {
     .pipe(rename({
       extname: '.min.js'
     }))
-    .pipe(gulp.dest('assets/js/'));
+    .pipe(gulp.dest('dist/js/'));
 });
 
 gulp.task('scss', () => {
@@ -26,10 +26,18 @@ gulp.task('scss', () => {
   })]
 
   return gulp
-    .src('./src/scss/*.scss')
+    .src('./src/style/*.scss')
     .pipe(sass())
     .pipe(postcss(processors))
-    .pipe(gulp.dest('assets/css/'))
+    .pipe(gulp.dest('dist/style/'))
+});
+
+gulp.task('copy', function () {
+  return gulp.src(
+    ['src/*.html', 'src/*.png', 'src/*.jpg'],
+    { base: 'src' }
+  )
+    .pipe(gulp.dest('dist'));
 });
 
 gulp.task('build',
@@ -39,7 +47,7 @@ gulp.task('build',
 gulp.task('serve', done => {
   browserSync.init({
     server: {
-      baseDir: './',
+      baseDir: './dist/',
       index: 'index.html',
     },
   })
@@ -51,10 +59,10 @@ gulp.task('watch', () => {
     browserSync.reload()
     done()
   }
-  gulp.watch('./assets/**/*', browserReload);
-  gulp.watch('./index.html', browserReload);
+  gulp.watch('./dist/**/*', browserReload);
+  gulp.watch('./src/index.html', gulp.series(browserReload, 'copy'));
   gulp.watch('./src/js/*', gulp.series('babel'));
-  gulp.watch('./src/scss/*', gulp.series('scss'));
+  gulp.watch('./src/style/*', gulp.series('scss'));
 })
 
-gulp.task('default', gulp.series('serve', 'watch'))
+gulp.task('default', gulp.series('serve', 'build', 'copy', 'watch'))
