@@ -1,6 +1,6 @@
 # Coding Template for HTML / SCSS / ES6
 
-using `babel`, `gulp / gulp-sass`, `browser-sync`, `git-cz / commitizen` and so. 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/8355ba17-5fbc-461e-a5c6-7c8a5fda8481/deploy-status)](https://app.netlify.com/sites/coding-template/deploys)
 
 ---
 
