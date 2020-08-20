@@ -6,7 +6,7 @@ const rename = require('gulp-rename');
 
 gulp.task('babel', () => {
   return gulp
-    .src('src/js/*.js')
+    .src('src/js/**/*.js')
     .pipe(babel({
       presets: ["@babel/preset-env"]
     }))
@@ -26,7 +26,7 @@ gulp.task('scss', () => {
   })]
 
   return gulp
-    .src('./src/style/*.scss')
+    .src('./src/style/**/*.scss')
     .pipe(sass())
     .pipe(postcss(processors))
     .pipe(gulp.dest('dist/style/'))
@@ -34,15 +34,11 @@ gulp.task('scss', () => {
 
 gulp.task('copy', function () {
   return gulp.src(
-    ['src/*.html', 'src/*.png', 'src/*.jpg'],
+    ['src/**/*.html', 'src/img/**/*'],
     { base: 'src' }
   )
     .pipe(gulp.dest('dist'));
 });
-
-gulp.task('build',
-  gulp.parallel('copy', 'babel', 'scss')
-);
 
 gulp.task('serve', done => {
   browserSync.init({
@@ -61,8 +57,12 @@ gulp.task('watch', () => {
   }
   gulp.watch('./dist/**/*', browserReload);
   gulp.watch('./src/index.html', gulp.series(browserReload, 'copy'));
-  gulp.watch('./src/js/*', gulp.series('babel'));
-  gulp.watch('./src/style/*', gulp.series('scss'));
+  gulp.watch('./src/js/**/*.js', gulp.series('babel'));
+  gulp.watch('./src/style/**/*.scss', gulp.series('scss'));
 })
+
+gulp.task('build',
+  gulp.parallel('copy', 'babel', 'scss')
+);
 
 gulp.task('default', gulp.series('serve', 'build', 'copy', 'watch'))
