@@ -19,9 +19,9 @@
   },
   "homepage": "https://github.com/yoshi1125hisa/coding-template#readme",
   "devDependencies": {
-    "@babel/cli": "7.12.13",
-    "@babel/core": "7.12.13",
-    "@babel/preset-env": "7.12.13",
+    "@babel/cli": "7.12.16",
+    "@babel/core": "7.12.16",
+    "@babel/preset-env": "7.12.16",
     "@babel/register": "7.12.13",
     "babel-loader": "8.2.2",
     "browser-sync": "2.26.14",
