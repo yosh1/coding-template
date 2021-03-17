@@ -56,7 +56,7 @@ gulp.task('watch', () => {
     done()
   }
   gulp.watch('./dist/**/*', browserReload);
-  gulp.watch('./src/index.html', gulp.series(browserReload, 'copy'));
+  gulp.watch('./src/**/*.html', gulp.series(browserReload, 'copy'));
   gulp.watch('./src/js/**/*.js', gulp.series('babel'));
   gulp.watch('./src/style/**/*.scss', gulp.series('scss'));
 })
