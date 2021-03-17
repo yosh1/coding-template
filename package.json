@@ -4,7 +4,6 @@
   "description": "coding template for html and scss",
   "main": "src/js/index.js",
   "scripts": {
-    "commit": "node ./node_modules/cz-customizable/standalone.js",
     "start": "gulp",
     "build": "gulp build"
   },
